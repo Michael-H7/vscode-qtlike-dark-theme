@@ -1,0 +1,21 @@
+{
+  "name": "qtlike-dark-theme",
+  "displayName": "Qt Creator-like dark theme",
+  "description": "A theme which is similar to Qt Creator's dark theme",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.71.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Qt-like Dark Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/qtlike-dark-theme.json"
+      }
+    ]
+  }
+}
