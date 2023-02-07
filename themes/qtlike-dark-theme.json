@@ -51,8 +51,7 @@
             "name": "Function names",
             "scope": [
                 "entity.name.function.definition.cpp",
-                "entity.name.scope-resolution.function.definition",
-                "entity.name.function"
+                "entity.name.scope-resolution.function.definition"
             ],
             "settings": {
                 "fontStyle": "bold",
