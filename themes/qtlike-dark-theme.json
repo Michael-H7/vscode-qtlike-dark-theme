@@ -38,6 +38,15 @@
             }
         },
         {
+            "name": "Constant Variables",
+            "scope": [
+                "constant.other.caps.python"
+            ],
+            "settings": {
+                "foreground": "#9aa7d6"
+            }
+        },
+        {
             "name": "Member variables",
             "scope": [
                 "variable.other.property.cpp",
@@ -114,6 +123,7 @@
                 "punctuation.section.embedded",
                 "keyword.operator.arithmetic.go",
                 "keyword.operator.address.go",
+                "variable.parameter.function.language.special.self.python",
                 "constant.regexp.xi"
             ],
             "settings": {
@@ -131,7 +141,7 @@
             }
         },
         {
-            "name": "Constants",
+            "name": "Constant Literals",
             "scope": [
                 "storage.type.haskell",
                 "keyword.operator.quantifier.regexp",
@@ -143,8 +153,6 @@
                 "support.constant.color.w3c-standard-color-name.css",
                 "support.constant.json",
                 "support.variable.property.process",
-                "variable.parameter.function.language.python",
-                "variable.parameter.function.python",
                 "constant.character.format.placeholder.other.python",
                 "control.elements",
                 " keyword.operator.less",
@@ -230,7 +238,7 @@
                 "beginning.punctuation.definition.list.markdown",
                 "punctuation.definition.metadata.markdown",
                 "punctuation.section.embedded",
-                " variable.interpolation",
+                "variable.interpolation",
                 "source.json meta.structure.dictionary.json > string.quoted.json",
                 "source.json meta.structure.dictionary.json > string.quoted.json > punctuation.string",
                 "support.type.property-name.json",
@@ -525,11 +533,9 @@
         {
             "name": "Classes",
             "scope": [
-                "variable.parameter.function.language.special.self.python",
                 "entity.name.lifetime.rust",
                 "markup.changed.diff",
                 "support.constant.math",
-                "variable.other.constant",
                 "storage.type.annotation.java",
                 "storage.type.object.array.java",
                 "storage.modifier.import.java",
@@ -544,7 +550,7 @@
                 "import.storage.java",
                 "entity.name.type.namespace",
                 "support.class",
-                " entity.name.type.class",
+                "entity.name.type.class",
                 "entity.name.class.identifier.namespace.type",
                 "entity.name.class",
                 "variable.other.class.js",
