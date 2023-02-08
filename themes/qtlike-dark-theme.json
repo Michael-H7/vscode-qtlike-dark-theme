@@ -223,7 +223,6 @@
                 "support.variable.dom",
                 "support.variable.property.dom",
                 "variable.other.local",
-                "variable",
                 "variable.other.class.php",
                 "entity.name.tag",
                 "markup.heading",
