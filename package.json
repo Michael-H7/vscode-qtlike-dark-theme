@@ -1,14 +1,19 @@
 {
   "name": "qtlike-dark-theme",
   "displayName": "Qt Creator-like dark theme",
-  "description": "A theme which is similar to Qt Creator's dark theme",
   "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.71.0"
+  "publisher": "MichaelH",
+  "description": "A theme which is similar to Qt Creator's dark theme",
+  "author": {
+	  "name": "Michael"
   },
   "categories": [
     "Themes"
   ],
+  "icon": "images/qt-like-dark-theme-icon.png",
+  "engines": {
+    "vscode": "^1.71.0"
+  },
   "contributes": {
     "themes": [
       {
@@ -17,5 +22,9 @@
         "path": "./themes/qtlike-dark-theme.json"
       }
     ]
+  },
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/Michael-H7/vscode-qtlike-dark-theme"
   }
 }
