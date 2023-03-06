@@ -4,7 +4,8 @@
     "semanticHighlighting": true,
     "semanticTokenColors": {
         "enumMember": {
-            "foreground": "#d6cf9a"
+            "fontStyle": "italic",
+            "foreground": "#66a334"
         },
         "variable.constant": {
             "foreground": "#8a602c"
@@ -70,6 +71,10 @@
         {
             "name": "Keywords",
             "scope": [
+                "storage.type.enum.cpp",
+                "storage.type.enum.enum-key.class.cpp",
+                "storage.modifier.specifier.functional.pre-parameters",
+                "storage.modifier.specifier.functional.post-parameters",
                 "support.constant.edge",
                 "variable.language.this.cpp",
                 "storage.modifier.specifier.static.cpp",
@@ -99,7 +104,6 @@
                 "keyword.operator.override.cpp",
                 "storage.type.modifier",
                 "storage.type.class",
-                "storage.modifier.specifier.functional.pre-parameters.virtual.cpp",
                 "storage.modifier.virtual.cpp",
                 "keyword.operator.expression.delete",
                 "keyword.operator.expression.in",
@@ -132,9 +136,10 @@
             }
         },
         {
-            "name": "Doxygen comment keywords",
+            "name": "Doxygen comment keywords + enums",
             "scope": [
-                "storage.type.class.doxygen"
+                "storage.type.class.doxygen",
+                "variable.other.enummember.cpp"
             ],
             "settings": {
                 "foreground": "#66a334"
@@ -246,6 +251,7 @@
                 "entity.name.variable.local.cs",
                 "meta.property.object",
                 "variable.parameter.function.js",
+                "variable.parameter.cpp",
                 "constant.character.entity",
                 "meta.symbol.clojure",
                 "meta.arguments.coffee",
