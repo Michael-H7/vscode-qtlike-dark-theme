@@ -704,7 +704,7 @@
         "editorWarning.background": "#A9904000",
         "editorWarning.border": "#ffffff00",
         "editorInfo.foreground": "#75beff",
-        "editorInfo.background": "#4490BF00",
+        "editorInfo.background": "#4590bf00",
         "editorInfo.border": "#4490BF00",
         "editorGutter.background": "#222324",
         "editorGutter.modifiedBackground": "#0c7d9d",
