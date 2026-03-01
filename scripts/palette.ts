@@ -62,14 +62,14 @@ export const TYPE = "#ff8080";
 export const CONSTANT = "#8a602c";
 
 /**
- * PARAMETER — Warm terracotta #c0836b
+ * PARAMETER — Warm terracotta #ca5d31
  * Function and method parameters across all languages.
  * Distinct from CONSTANT (numbers/named constants) and MEMBER (fields/locals)
  * so call-site arguments can be visually traced back to their declaration.
  * Applies via the `parameter` semantic token and `variable.parameter.*`
  * TextMate scopes.
  */
-export const PARAMETER = "#c0836b";
+export const PARAMETER = "#ca5d31";
 
 /**
  * STORAGE — Dusty mauve #d69aa7
