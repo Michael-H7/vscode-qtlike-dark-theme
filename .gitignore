@@ -1,0 +1,18 @@
+# ── Node / npm ────────────────────────────────────────────────────────────────
+node_modules/
+package-lock.json
+
+# ── TypeScript build output ───────────────────────────────────────────────────
+# (scripts compile to JS only if you add a tsc outDir; excluded just in case)
+out/
+dist/
+
+# ── VS Code extension packaging ───────────────────────────────────────────────
+*.vsix
+
+# ── OS cruft ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Editor / IDE ──────────────────────────────────────────────────────────────
+.vscode-test/

@@ -1,18 +1,28 @@
 {
   "name": "qtlike-dark-theme",
   "displayName": "Qt Creator-like dark theme",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "MichaelH",
-  "description": "A theme which is similar to Qt Creator's dark theme",
+  "description": "A warm dark theme inspired by Qt Creator's built-in dark mode, with comprehensive support for C/C++, Python, TypeScript, JavaScript, C#, Rust, Go, HTML, XML, JSON, YAML, TOML and more.",
   "author": {
-	  "name": "Michael"
+    "name": "Michael"
   },
+  "keywords": [
+    "theme",
+    "dark",
+    "qt",
+    "creator",
+    "cpp",
+    "python",
+    "typescript",
+    "rust"
+  ],
   "categories": [
     "Themes"
   ],
   "icon": "images/qt-like-dark-theme-icon.png",
   "engines": {
-    "vscode": "^1.71.0"
+    "vscode": "^1.85.0"
   },
   "contributes": {
     "themes": [
@@ -23,8 +33,16 @@
       }
     ]
   },
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/Michael-H7/vscode-qtlike-dark-theme"
+  },
+  "scripts": {
+    "build-theme": "tsx scripts/build.ts",
+    "vscode:prepublish": "tsx scripts/build.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
   }
 }
