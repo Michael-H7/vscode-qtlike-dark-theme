@@ -27,7 +27,7 @@
         "property.static": "#c19a7a",
         "variable": "#c19a7a",
         "variable.readonly": "#8a602c",
-        "parameter": "#ca5d31",
+        "parameter": "#b8733b",
         "selfParameter": {
             "foreground": "#45c6d6",
             "fontStyle": "italic"
@@ -574,7 +574,7 @@
                 "token.variable.parameter.java"
             ],
             "settings": {
-                "foreground": "#ca5d31"
+                "foreground": "#b8733b"
             }
         },
         {

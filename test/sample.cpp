@@ -11,6 +11,7 @@
  *   Doxygen @tags              → muted green    (#66a334)
  *   enum members               → muted green    (#66a334)
  *   preprocessor               → hot pink       (#ff6aad)
+ * 	#b8733b 	#C19A7A 	#8A602C
  */
 
 /* ── Preprocessor ─────────────────────────────────────────────────────────── */
