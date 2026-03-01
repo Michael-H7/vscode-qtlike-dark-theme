@@ -22,11 +22,20 @@
             "fontStyle": "italic"
         },
         "property": "#c19a7a",
+        "property:cpp": "#fee45d",
         "property.readonly": "#8a602c",
         "property.static": "#c19a7a",
         "variable": "#c19a7a",
         "variable.readonly": "#8a602c",
-        "parameter": "#8a602c",
+        "parameter": "#c0836b",
+        "selfParameter": {
+            "foreground": "#45c6d6",
+            "fontStyle": "italic"
+        },
+        "clsParameter": {
+            "foreground": "#45c6d6",
+            "fontStyle": "italic"
+        },
         "function": "#d6cf9a",
         "function.defaultLibrary": "#d6cf9a",
         "method": "#d6cf9a",
@@ -482,7 +491,6 @@
             "name": "Members — JavaScript parameter, C++ function body, misc",
             "scope": [
                 "variable.parameter.function.js",
-                "variable.parameter.cpp",
                 "meta.function.c",
                 "meta.function.cpp",
                 "meta.definition.variable.name.groovy",
@@ -555,17 +563,18 @@
             }
         },
         {
-            "name": "Constants — function parameters (universal)",
+            "name": "Parameters — function parameters (universal)",
             "scope": [
                 "variable.parameter",
                 "variable.parameter.function",
                 "variable.parameter.function.language.python",
                 "variable.parameter.function.python",
+                "variable.parameter.cpp",
                 "variable.parameter.cs",
                 "token.variable.parameter.java"
             ],
             "settings": {
-                "foreground": "#8a602c"
+                "foreground": "#c0836b"
             }
         },
         {

@@ -56,10 +56,20 @@ export const TYPE = "#ff8080";
 /**
  * CONSTANT — Dark sienna #8a602c
  * Numeric literals, named constants, enum members in TextMate layer,
- * function parameters, CSS property-value constants, `const`-declared
- * variable references.
+ * CSS property-value constants, `const`-declared / readonly variable
+ * references. NOT used for function parameters (see PARAMETER below).
  */
 export const CONSTANT = "#8a602c";
+
+/**
+ * PARAMETER — Warm terracotta #c0836b
+ * Function and method parameters across all languages.
+ * Distinct from CONSTANT (numbers/named constants) and MEMBER (fields/locals)
+ * so call-site arguments can be visually traced back to their declaration.
+ * Applies via the `parameter` semantic token and `variable.parameter.*`
+ * TextMate scopes.
+ */
+export const PARAMETER = "#c0836b";
 
 /**
  * STORAGE — Dusty mauve #d69aa7

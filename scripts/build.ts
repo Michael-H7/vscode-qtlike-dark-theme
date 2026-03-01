@@ -176,11 +176,21 @@ const semanticTokenColors: Record<string, SemanticValue> = {
   // Python instance attributes (Pylance), TypeScript class fields,
   // Rust struct fields (rust-analyzer), Go struct fields (gopls).
   "property":                   sc(p.MEMBER),
+  // C++ override: field access via . or -> must be bright yellow (Qt Creator
+  // convention). The language-scoped rule beats the generic `property` above.
+  "property:cpp":               sc(p.MEMBER_CPP),
   "property.readonly":          sc(p.CONSTANT),
   "property.static":            sc(p.MEMBER),
   "variable":                   sc(p.MEMBER),
   "variable.readonly":          sc(p.CONSTANT),
-  "parameter":                  sc(p.CONSTANT),
+  // Parameters get their own colour — distinct from numeric constants (brown)
+  // and from member variables (sandy orange).
+  "parameter":                  sc(p.PARAMETER),
+  // Pylance emits selfParameter / clsParameter for Python's `self` and `cls`.
+  // These are not ordinary parameters — they're implicit receivers and should
+  // read as keywords (teal italic) just like `this` in C++/C#/JS/TS.
+  "selfParameter":              scs(p.KEYWORD, "italic"),
+  "clsParameter":               scs(p.KEYWORD, "italic"),
 
   // ── Functions & methods ───────────────────────────────────────────────────
   "function":                   sc(p.DEFAULT_FG),
@@ -638,7 +648,8 @@ const tokenColors: TokenColor[] = [
 
   fg("Members — JavaScript parameter, C++ function body, misc", [
     "variable.parameter.function.js",
-    "variable.parameter.cpp",
+    // Note: variable.parameter.cpp is intentionally absent — C++ parameters
+    // are coloured PARAMETER (terracotta) via the rule below / semantic layer.
     // C/C++ function body — provides the base colour for C/C++ content
     "meta.function.c",
     "meta.function.cpp",
@@ -720,17 +731,19 @@ const tokenColors: TokenColor[] = [
     "constant.character.entity",      // HTML &amp; etc.
   ], p.CONSTANT),
 
-  fg("Constants — function parameters (universal)", [
-    // Parameters are styled CONSTANT across all languages at the TextMate
-    // layer. The semantic layer's `parameter` token provides more precise
-    // coverage per language.
+  fg("Parameters — function parameters (universal)", [
+    // Parameters get PARAMETER (warm terracotta) — distinct from numeric
+    // constants (CONSTANT brown) and from member variables (MEMBER orange).
+    // The semantic `parameter` token overrides these at the LSP layer, but
+    // these TextMate rules act as a universal fallback.
     "variable.parameter",
     "variable.parameter.function",
     "variable.parameter.function.language.python",
     "variable.parameter.function.python",
+    "variable.parameter.cpp",
     "variable.parameter.cs",
     "token.variable.parameter.java",
-  ], p.CONSTANT),
+  ], p.PARAMETER),
 
   fg("Constants — CSS and SCSS property values", [
     "support.constant.property-value.scss",
