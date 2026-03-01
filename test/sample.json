@@ -1,0 +1,88 @@
+{
+  "_comment": "sample.json — Theme fixture: JSON. Check: property keys (sandy orange), string values (amber), numbers/booleans/null (dark sienna), nested structures.",
+  "meta": {
+    "name": "Qt Creator-Like Dark Theme",
+    "version": "0.1.0",
+    "description": "A dark colour theme inspired by Qt Creator's built-in dark mode.",
+    "homepage": "https://github.com/example/vscode-qtlike-dark-theme",
+    "license": "MIT"
+  },
+  "palette": {
+    "DEFAULT_FG":   "#d6cf9a",
+    "MEMBER":       "#c19a7a",
+    "STRING":       "#d69545",
+    "KEYWORD":      "#45c6d6",
+    "TYPE":         "#ff8080",
+    "CONSTANT":     "#8a602c",
+    "STORAGE":      "#d69aa7",
+    "COMMENT":      "#a8abb0",
+    "PREPROCESSOR": "#ff6aad",
+    "DOC_TAG":      "#66a334",
+    "MEMBER_CPP":   "#fee45d",
+    "GLOBAL_VAR":   "#9aa7d6",
+    "ERROR":        "#f44747"
+  },
+  "languages": [
+    "c",
+    "cpp",
+    "python",
+    "typescript",
+    "javascript",
+    "csharp",
+    "rust",
+    "go",
+    "html",
+    "xml",
+    "json",
+    "yaml",
+    "toml"
+  ],
+  "config": {
+    "semanticHighlighting": true,
+    "tokenColorsCount": 66,
+    "semanticTokensCount": 32,
+    "uiColoursCount": 246
+  },
+  "buildScript": {
+    "command": "tsx scripts/build.ts",
+    "output": "themes/qtlike-dark-theme.json",
+    "devDependencies": {
+      "tsx": "^4.19.0",
+      "typescript": "^5.7.0"
+    }
+  },
+  "numbers": {
+    "integer":    42,
+    "negative":   -7,
+    "float":      3.14159,
+    "scientific": 1.5e10,
+    "zero":       0
+  },
+  "booleans": {
+    "trueValue":  true,
+    "falseValue": false,
+    "nullValue":  null
+  },
+  "nested": {
+    "level1": {
+      "level2": {
+        "level3": {
+          "deep": "value",
+          "deeper": [1, 2, 3]
+        }
+      }
+    }
+  },
+  "arrays": {
+    "strings":  ["alpha", "beta", "gamma", "delta"],
+    "numbers":  [0, 1, 1, 2, 3, 5, 8, 13, 21, 34],
+    "mixed":    ["string", 42, true, null, { "key": "value" }],
+    "empty":    []
+  },
+  "specialStrings": {
+    "escaped":    "tab:\there\nnewline\n\"quoted\"\n\\backslash",
+    "unicode":    "\u0048\u0065\u006C\u006C\u006F",
+    "url":        "https://api.example.com/v1/users?page=1&limit=10",
+    "empty":      ""
+  }
+}

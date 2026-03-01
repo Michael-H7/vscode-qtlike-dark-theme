@@ -1,0 +1,206 @@
+# sample.yaml — Theme fixture: YAML 1.2
+#
+# Open in Extension Development Host (F5) and use
+# "Developer: Inspect Editor Tokens and Scopes" to verify colours.
+#
+# Key things to check:
+#   mapping keys          → sandy orange   (#c19a7a)
+#   string values         → amber          (#d69545)
+#   numbers/booleans/null → dark sienna    (#8a602c)
+#   comments              → cool grey italic (#a8abb0)
+#   anchors (&name)       → hot pink       (#ff6aad)  (check your grammar)
+#   aliases (*name)       → sandy orange   (#c19a7a)
+#   --- document marker   → warm tan       (#d6cf9a)
+
+---
+
+# ── Project metadata ──────────────────────────────────────────────────────────
+
+project:
+  name: "Qt Creator-Like Dark Theme"
+  version: "0.1.0"
+  description: >
+    A dark colour theme for Visual Studio Code inspired by Qt Creator's
+    built-in dark mode. Warm tan text on near-black warm-grey background.
+  homepage: https://github.com/example/vscode-qtlike-dark-theme
+  license: MIT
+  authors:
+    - name: Michael
+      email: dev@example.com
+      role: maintainer
+
+# ── Colour palette ────────────────────────────────────────────────────────────
+
+palette:
+  DEFAULT_FG:   "#d6cf9a"   # warm tan       — default foreground
+  MEMBER:       "#c19a7a"   # sandy orange   — member variables / properties
+  STRING:       "#d69545"   # amber          — string literals
+  KEYWORD:      "#45c6d6"   # teal           — keywords (italic)
+  TYPE:         "#ff8080"   # coral red      — type names
+  CONSTANT:     "#8a602c"   # dark sienna    — constants and parameters
+  STORAGE:      "#d69aa7"   # dusty mauve    — primitive storage types
+  COMMENT:      "#a8abb0"   # cool grey      — comments (italic)
+  PREPROCESSOR: "#ff6aad"   # hot pink       — preprocessor / decorators
+  DOC_TAG:      "#66a334"   # muted green    — documentation tags
+  MEMBER_CPP:   "#fee45d"   # bright yellow  — C++ member access
+  GLOBAL_VAR:   "#9aa7d6"   # blue-purple    — global/module-level variables
+  ERROR:        "#f44747"   # bright red     — errors / invalid tokens
+
+# ── Supported languages ───────────────────────────────────────────────────────
+
+languages:
+  - id: c
+    name: C
+    standard: C17
+    lsp: clangd
+
+  - id: cpp
+    name: C++
+    standard: C++20
+    lsp: clangd
+    notes: "member access via . or -> rendered in bright yellow (#fee45d)"
+
+  - id: python
+    name: Python
+    standard: "3.10+"
+    lsp: Pylance
+    features:
+      - match/case
+      - walrus :=
+      - ALL_CAPS constants
+
+  - id: typescript
+    name: TypeScript
+    standard: "5.x"
+    lsp: tsserver (built-in)
+    features:
+      - satisfies
+      - using
+      - template literal types
+
+  - id: rust
+    name: Rust
+    standard: "2021 edition"
+    lsp: rust-analyzer
+
+  - id: go
+    name: Go
+    standard: "1.21+"
+    lsp: gopls
+    notes: "semantic tokens require: gopls.ui.semanticTokens: true"
+
+# ── Build configuration ───────────────────────────────────────────────────────
+
+build:
+  script: scripts/build.ts
+  runner: tsx
+  output: themes/qtlike-dark-theme.json
+  counts:
+    textmate_rules: 66
+    semantic_rules: 32
+    ui_colours: 246
+  dev_dependencies:
+    tsx: "^4.19.0"
+    typescript: "^5.7.0"
+
+# ── Anchors and aliases ───────────────────────────────────────────────────────
+
+defaults: &defaults
+  enabled: true
+  version: "0.1.0"
+  priority: medium
+
+feature_semantic: &feature
+  <<: *defaults
+  name: semantic-highlighting
+  description: LSP-powered semantic token highlighting
+
+feature_textmate:
+  <<: *defaults
+  name: textmate-rules
+  description: TextMate grammar-based fallback highlighting
+  priority: high
+
+feature_ui:
+  <<: *defaults
+  name: ui-colours
+  description: VS Code workbench / chrome colours
+
+# ── Scalar types ──────────────────────────────────────────────────────────────
+
+scalars:
+  # Strings
+  plain_string:     hello world
+  quoted_double:    "hello \"world\""
+  quoted_single:    'it''s a test'
+  literal_block: |
+    line one
+    line two
+    line three
+  folded_block: >
+    this is a long line that
+    gets folded into a single line
+    with a trailing newline
+
+  # Numbers
+  integer:      42
+  negative:     -7
+  float:        3.14159
+  scientific:   1.5e10
+  octal:        0o755
+  hex:          0xFF
+  binary:       0b1010
+
+  # Booleans and null
+  bool_true:    true
+  bool_false:   false
+  null_value:   null
+  null_tilde:   ~
+
+  # Timestamps
+  date:         2024-01-15
+  datetime:     2024-01-15T10:30:00Z
+  datetime_tz:  2024-01-15 10:30:00+05:30
+
+# ── Sequences ─────────────────────────────────────────────────────────────────
+
+sequences:
+  block:
+    - alpha
+    - beta
+    - gamma
+    - delta
+
+  flow: [one, two, three, four, five]
+
+  nested:
+    - name: Alice
+      role: admin
+      active: true
+    - name: Bob
+      role: user
+      active: false
+
+  mixed:
+    - "string"
+    - 42
+    - true
+    - null
+    - key: value
+
+# ── Mappings ──────────────────────────────────────────────────────────────────
+
+mappings:
+  block:
+    key1: value1
+    key2: value2
+    key3: value3
+
+  flow: {alpha: 1, beta: 2, gamma: 3}
+
+  nested:
+    outer:
+      inner:
+        deep: found
+
+...

@@ -1,0 +1,177 @@
+# sample.toml — Theme fixture: TOML v1.0
+#
+# Open in Extension Development Host (F5) and use
+# "Developer: Inspect Editor Tokens and Scopes" to verify colours.
+#
+# Key things to check:
+#   [table] / [[array of tables]] headers → coral red   (#ff8080)
+#   keys                                  → sandy orange (#c19a7a)
+#   string values                         → amber        (#d69545)
+#   numbers / booleans                    → dark sienna  (#8a602c)
+#   comments                              → cool grey italic (#a8abb0)
+#   dates / times                         → dark sienna  (#8a602c)
+
+# ── Project metadata ──────────────────────────────────────────────────────────
+
+[project]
+name        = "Qt Creator-Like Dark Theme"
+version     = "0.1.0"
+description = """
+A dark colour theme for Visual Studio Code \
+inspired by Qt Creator's built-in dark mode. \
+Warm tan text on near-black warm-grey background.
+"""
+homepage    = "https://github.com/example/vscode-qtlike-dark-theme"
+license     = "MIT"
+keywords    = ["theme", "dark", "qt", "colour"]
+
+# ── Author ────────────────────────────────────────────────────────────────────
+
+[project.author]
+name  = "Michael"
+email = "dev@example.com"
+role  = "maintainer"
+
+# ── Build configuration ───────────────────────────────────────────────────────
+
+[build]
+script  = "scripts/build.ts"
+runner  = "tsx"
+output  = "themes/qtlike-dark-theme.json"
+
+[build.counts]
+textmate_rules = 66
+semantic_rules = 32
+ui_colours     = 246
+
+# ── Scalar types ──────────────────────────────────────────────────────────────
+
+[scalars]
+# Integers
+integer       = 42
+negative      = -7
+positive      = +100
+hex           = 0xFF
+octal         = 0o755
+binary        = 0b1010
+big_number    = 1_000_000
+
+# Floats
+float         = 3.14159
+negative_f    = -2.71828
+scientific    = 6.626e-34
+infinity      = inf
+not_a_number  = nan
+
+# Booleans
+bool_true     = true
+bool_false    = false
+
+# Strings
+plain_string    = "hello world"
+single_quoted   = 'C:\Users\dev\Documents'  # literal — no escapes
+multiline_basic = """
+  line one
+  line two
+  line three
+  """
+multiline_literal = '''
+  raw \n no \t escapes here
+  '''
+
+# Dates and times (dark sienna — same as numbers)
+local_date      = 2024-01-15
+local_time      = 10:30:00
+local_datetime  = 2024-01-15T10:30:00
+offset_datetime = 2024-01-15T10:30:00Z
+tz_datetime     = 2024-01-15T10:30:00+05:30
+
+# ── Arrays ────────────────────────────────────────────────────────────────────
+
+[arrays]
+integers    = [1, 2, 3, 4, 5]
+strings     = ["alpha", "beta", "gamma"]
+booleans    = [true, false, true]
+mixed_ok    = ["one", 2, 3.0]        # TOML arrays may mix types
+multiline   = [
+  "first",
+  "second",
+  "third",
+]
+
+# ── Inline tables ─────────────────────────────────────────────────────────────
+
+[inline_tables]
+point       = {x = 1, y = 2}
+colour      = {r = 255, g = 128, b = 0}
+nested      = {name = "Alice", address = {city = "Berlin", zip = "10115"}}
+
+# ── Array of tables ───────────────────────────────────────────────────────────
+
+[[languages]]
+id       = "c"
+name     = "C"
+standard = "C17"
+lsp      = "clangd"
+
+[[languages]]
+id       = "cpp"
+name     = "C++"
+standard = "C++20"
+lsp      = "clangd"
+
+[[languages]]
+id       = "python"
+name     = "Python"
+standard = "3.10+"
+lsp      = "Pylance"
+
+[[languages]]
+id       = "rust"
+name     = "Rust"
+standard = "2021 edition"
+lsp      = "rust-analyzer"
+
+[[languages]]
+id       = "go"
+name     = "Go"
+standard = "1.21+"
+lsp      = "gopls"
+
+# ── Nested tables ─────────────────────────────────────────────────────────────
+
+[colours.keyword]
+hex     = "#45c6d6"
+name    = "teal"
+style   = "italic"
+usage   = "keywords"
+
+[colours.type]
+hex     = "#ff8080"
+name    = "coral red"
+style   = "normal"
+usage   = "type names, class names"
+
+[colours.string]
+hex     = "#d69545"
+name    = "amber"
+style   = "normal"
+usage   = "string literals"
+
+[colours.comment]
+hex     = "#a8abb0"
+name    = "cool grey"
+style   = "italic"
+usage   = "line and block comments"
+
+[colours.preprocessor]
+hex     = "#ff6aad"
+name    = "hot pink"
+style   = "normal"
+usage   = "preprocessor directives, decorators, attributes"
+
+# ── Dev dependencies ──────────────────────────────────────────────────────────
+
+[dev_dependencies]
+tsx        = "^4.19.0"
+typescript = "^5.7.0"

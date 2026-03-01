@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sample.xml — Theme fixture: XML
+  Open in Extension Development Host (F5) and use
+  "Developer: Inspect Editor Tokens and Scopes" to verify colours.
+
+  Key things to check:
+    <?xml …?>               → hot pink       (#ff6aad)
+    element names           → sandy orange   (#c19a7a)
+    < > / angle brackets    → warm tan       (#d6cf9a)
+    attribute names         → dark sienna    (#8a602c)
+    attribute values        → amber          (#d69545)
+    XML comments            → cool grey italic (#a8abb0)
+    CDATA sections          → amber          (#d69545)
+    namespace prefixes      → coral red      (#ff8080)
+-->
+
+<?xml-stylesheet type="text/xsl" href="transform.xsl"?>
+
+<project xmlns="https://example.com/schema/project/1.0"
+         xmlns:build="https://example.com/schema/build/1.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://example.com/schema/project/1.0 project.xsd"
+         version="2.1"
+         id="theme-fixture">
+
+  <!-- Project metadata -->
+  <metadata>
+    <name>Qt Creator-Like Dark Theme</name>
+    <description>
+      A dark colour theme inspired by Qt Creator's built-in dark mode.
+    </description>
+    <version major="0" minor="1" patch="0" pre-release=""/>
+    <authors>
+      <author email="dev@example.com" role="maintainer">Michael</author>
+    </authors>
+    <license spdx="MIT" url="https://opensource.org/licenses/MIT"/>
+    <repository type="git" url="https://github.com/example/vscode-qtlike-dark-theme"/>
+    <keywords>
+      <keyword>theme</keyword>
+      <keyword>dark</keyword>
+      <keyword>qt</keyword>
+    </keywords>
+  </metadata>
+
+  <!-- Supported languages -->
+  <languages>
+    <language id="cpp"        name="C/C++"      version="C++20"/>
+    <language id="python"     name="Python"     version="3.10+"/>
+    <language id="typescript" name="TypeScript" version="5.x"/>
+    <language id="javascript" name="JavaScript" version="ES2022"/>
+    <language id="csharp"     name="C#"         version="12"/>
+    <language id="rust"       name="Rust"       version="2021"/>
+    <language id="go"         name="Go"         version="1.21+"/>
+    <language id="html"       name="HTML"       version="5"/>
+    <language id="xml"        name="XML"        version="1.0"/>
+    <language id="json"       name="JSON"       version=""/>
+    <language id="yaml"       name="YAML"       version="1.2"/>
+    <language id="toml"       name="TOML"       version="1.0"/>
+  </languages>
+
+  <!-- Colour palette -->
+  <palette>
+    <colour name="DEFAULT_FG"  hex="#d6cf9a" role="default foreground"/>
+    <colour name="MEMBER"      hex="#c19a7a" role="member variables and properties"/>
+    <colour name="STRING"      hex="#d69545" role="string literals"/>
+    <colour name="KEYWORD"     hex="#45c6d6" role="keywords (italic)"/>
+    <colour name="TYPE"        hex="#ff8080" role="type names"/>
+    <colour name="CONSTANT"    hex="#8a602c" role="constants and parameters"/>
+    <colour name="STORAGE"     hex="#d69aa7" role="primitive storage types"/>
+    <colour name="COMMENT"     hex="#a8abb0" role="comments (italic)"/>
+    <colour name="PREPROCESSOR" hex="#ff6aad" role="preprocessor and decorators"/>
+    <colour name="DOC_TAG"     hex="#66a334" role="documentation tags"/>
+    <colour name="MEMBER_CPP"  hex="#fee45d" role="C++ member access"/>
+    <colour name="GLOBAL_VAR"  hex="#9aa7d6" role="global variables"/>
+    <colour name="ERROR"       hex="#f44747" role="errors and invalid tokens"/>
+  </palette>
+
+  <!-- Build configuration (namespace-prefixed elements) -->
+  <build:configuration>
+    <build:task name="build-theme" runner="tsx">
+      <build:input>scripts/build.ts</build:input>
+      <build:output>themes/qtlike-dark-theme.json</build:output>
+      <build:flags>
+        <build:flag name="--no-cache"/>
+      </build:flags>
+    </build:task>
+
+    <build:task name="package" runner="vsce">
+      <build:dependsOn>build-theme</build:dependsOn>
+      <build:output>qtlike-dark-theme-0.1.0.vsix</build:output>
+    </build:task>
+  </build:configuration>
+
+  <!-- CDATA section (should be amber/string colour) -->
+  <notes><![CDATA[
+    <Important> notes that contain angle brackets & "special" characters.
+    This text is not parsed as XML: <br/> remains literal.
+    CONSTANT value: 42 & some entities: &amp; &lt; &gt;
+  ]]></notes>
+
+  <!-- Processing instruction -->
+  <?custom-processor mode="strict" encoding="utf-8"?>
+
+  <!-- Mixed content -->
+  <documentation xml:lang="en">
+    Open <code>F5</code> in VS Code with this repository as workspace,
+    then activate the <em>Qt Creator-Like Dark Theme</em> to test.
+    Use <strong>Developer: Inspect Editor Tokens and Scopes</strong>
+    to check individual token colours.
+  </documentation>
+
+  <!-- Self-closing and boolean-style attributes -->
+  <feature id="semantic-highlighting" enabled="true"  since="0.1.0"/>
+  <feature id="textmate-rules"        enabled="true"  since="0.0.1"/>
+  <feature id="ui-colours"            enabled="true"  since="0.0.1"/>
+  <feature id="screenshot"            enabled="false" since=""/>
+
+</project>

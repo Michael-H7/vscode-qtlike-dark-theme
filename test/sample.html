@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--
+  sample.html — Theme fixture: HTML5
+  Open in Extension Development Host (F5) and use
+  "Developer: Inspect Editor Tokens and Scopes" to verify colours.
+
+  Key things to check:
+    tag names (<div>, <input>, …)   → sandy orange  (#c19a7a)
+    < > / angle brackets            → warm tan       (#d6cf9a)
+    attribute names                  → dark sienna    (#8a602c)
+    attribute values (strings)       → amber          (#d69545)
+    DOCTYPE / processing instr.      → hot pink       (#ff6aad)
+    HTML comments <!-- -->          → cool grey italic (#a8abb0)
+    <script> JS                      → theme JS rules
+    <style> CSS                      → theme CSS rules
+-->
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Qt Creator-like dark theme fixture page">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Theme Fixture — Qt Creator Dark</title>
+  <link rel="stylesheet"   href="/styles/main.css" type="text/css">
+  <link rel="icon"         href="/favicon.ico" sizes="any">
+  <link rel="canonical"    href="https://example.com/fixture">
+  <script type="module"    src="/scripts/app.js" defer></script>
+  <style>
+    :root {
+      --bg:      #2e2f30;
+      --fg:      #d6cf9a;
+      --accent:  #45c6d6;
+      --danger:  #ff8080;
+    }
+
+    *,
+    *::before,
+    *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color:            var(--fg);
+      font-family:      "Segoe UI", system-ui, sans-serif;
+      font-size:        1rem;
+      line-height:      1.5;
+    }
+
+    .card {
+      border:        1px solid var(--accent);
+      border-radius: 0.5rem;
+      padding:       1.5rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ── Navigation ──────────────────────────────────────────────────────── -->
+  <header role="banner">
+    <nav aria-label="Main navigation">
+      <ul role="list">
+        <li><a href="/"         aria-current="page">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── Main content ────────────────────────────────────────────────────── -->
+  <main id="content">
+    <h1>Theme Fixture</h1>
+    <p>This page exercises HTML syntax tokens for the Qt Creator-like dark theme.</p>
+
+    <!-- ── Forms ─────────────────────────────────────────────────────────── -->
+    <section aria-labelledby="form-heading">
+      <h2 id="form-heading">Form Elements</h2>
+      <form method="POST" action="/submit" enctype="multipart/form-data" novalidate>
+        <fieldset>
+          <legend>User Details</legend>
+
+          <label for="name">Full name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Alice Example"
+            required
+            minlength="2"
+            maxlength="100"
+            autocomplete="name">
+
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="alice@example.com"
+            required
+            autocomplete="email">
+
+          <label for="role">Role</label>
+          <select id="role" name="role" aria-required="true">
+            <option value=""        disabled selected>Select a role…</option>
+            <option value="admin">Administrator</option>
+            <option value="user">Standard user</option>
+            <option value="guest">Guest</option>
+          </select>
+
+          <label for="bio">Bio</label>
+          <textarea
+            id="bio"
+            name="bio"
+            rows="4"
+            cols="40"
+            maxlength="500"
+            placeholder="Tell us about yourself…"></textarea>
+
+          <label>
+            <input type="checkbox" name="agree" value="yes" required>
+            I agree to the <a href="/terms" target="_blank" rel="noopener">terms</a>
+          </label>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </form>
+    </section>
+
+    <!-- ── Tables ────────────────────────────────────────────────────────── -->
+    <section aria-labelledby="table-heading">
+      <h2 id="table-heading">Data Table</h2>
+      <table>
+        <caption>User summary</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Role</th>
+            <th scope="col">Active</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Alice</td>
+            <td>admin</td>
+            <td><span aria-label="active">✓</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Bob</td>
+            <td>user</td>
+            <td><span aria-label="inactive">✗</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">2 users total</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- ── Media ─────────────────────────────────────────────────────────── -->
+    <section>
+      <h2>Media</h2>
+      <figure>
+        <img
+          src="/images/screenshot.png"
+          alt="Theme preview screenshot"
+          width="800"
+          height="600"
+          loading="lazy"
+          decoding="async">
+        <figcaption>Qt Creator-like dark theme preview</figcaption>
+      </figure>
+
+      <video controls width="640" height="360" poster="/images/poster.jpg">
+        <source src="/video/demo.mp4"  type="video/mp4">
+        <source src="/video/demo.webm" type="video/webm">
+        <track src="/captions/demo.vtt" kind="captions" srclang="en" label="English">
+        Your browser does not support the video element.
+      </video>
+    </section>
+
+    <!-- ── Custom elements / ARIA ────────────────────────────────────────── -->
+    <section>
+      <h2>Custom Elements</h2>
+      <my-dialog id="confirm-dialog" open aria-modal="true" role="dialog">
+        <my-dialog-title>Confirm action</my-dialog-title>
+        <my-dialog-body>Are you sure you want to continue?</my-dialog-body>
+        <my-dialog-footer>
+          <button type="button" data-action="confirm">Yes</button>
+          <button type="button" data-action="cancel">No</button>
+        </my-dialog-footer>
+      </my-dialog>
+    </section>
+  </main>
+
+  <!-- ── Inline script ────────────────────────────────────────────────────── -->
+  <script>
+    "use strict";
+
+    const dialog = document.getElementById("confirm-dialog");
+    const form   = document.querySelector("form");
+
+    dialog?.addEventListener("click", (event) => {
+      const action = event.target.dataset?.action;
+      if (action === "confirm") {
+        form?.dispatchEvent(new Event("submit", { bubbles: true }));
+      }
+    });
+
+    document.querySelectorAll("[data-action]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        console.log("clicked:", btn.textContent?.trim());
+      });
+    });
+  </script>
+
+  <footer>
+    <p>&copy; 2024 Theme Fixture. <abbr title="Qt Creator">QC</abbr>-inspired.</p>
+    <address>
+      Contact: <a href="mailto:test@example.com">test@example.com</a>
+    </address>
+  </footer>
+</body>
+</html>
